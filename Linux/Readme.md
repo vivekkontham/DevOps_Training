@@ -1,5 +1,12 @@
 # Linux For DevOps
 
+## Linux Introduction 
+
+## Linux Architecture & Flavours 
+
+## Linux File System
+
+
 ## Linux and Networking Commands
 
 ### Top 15 Basic Linux Commands
@@ -95,3 +102,12 @@ The `ip route show table main` command displays the main routing table. For exam
 The `ip route del default via` command deletes the default route via the specified gateway. For example, `ip route del default via 192.168.1.1` deletes the route. The `iptables -A OUTPUT` command appends a rule to the OUTPUT chain of the firewall. Use `iptables -A OUTPUT -d 192.168.0.0/24 -j ACCEPT` to add a rule.
 
 The `iptables -D OUTPUT` command deletes a rule from the OUTPUT chain of the firewall. For example, `iptables -D OUTPUT -d 192.168.0.0/24 -j ACCEPT` deletes the rule.
+
+
+## Linux Package Managment 
+
+## Linux File Permisson 
+
+## Scripting 
+
+## Cron Tab
