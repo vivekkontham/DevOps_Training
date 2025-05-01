@@ -23,7 +23,7 @@ For real-time system information and process lists, the `top` command is used. I
 
 The `cat` command concatenates and displays file content. Use `cat file_name` to display a file's content. The `vi` command opens a file in the vi editor for editing, while the `nano` command opens a file in the nano editor. The `touch` command creates an empty file or updates timestamps on existing files. Use `touch file_name` to create an empty file. The `echo` command displays a line of text or string passed as an argument. For example, `echo "Hello, World!"`.
 
-## Top Networking Commands in Linux
+### Top Networking Commands in Linux
 
 The `ifconfig` command displays or configures network interfaces. For example, `ifconfig eth0` shows information for the eth0 interface. The `ip` command configures and displays network interfaces, routing tables, and more. Use `ip address show` to display IP addresses.
 
