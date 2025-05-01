@@ -1,6 +1,8 @@
-# Linux and Networking Commands
+# Linux For DevOps
 
-## Top 15 Basic Linux Commands
+## Linux and Networking Commands
+
+### Top 15 Basic Linux Commands
 
 The `ls` command is used to list files and directories in the current directory. You can use `ls -l` for a detailed list and `ls -a` to include hidden files. The `cd` command changes the current directory. For example, `cd /path/to/directory` changes to the specified path, `cd ..` moves up to the parent directory, and `cd ~` moves to the home directory.
 
