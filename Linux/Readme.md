@@ -364,6 +364,126 @@ Package managers also manage conflicts that may arise when two packages require 
 - **Example**: If you attempt to install a package that conflicts with an already installed package, the package manager may suggest removing the conflicting package or provide options to proceed with the installation.
 
 ## Linux File Permisson 
+# Linux File Permissions: User & Group Management
+
+Understanding file permissions and user/group management in Linux is essential for maintaining system security and ensuring that users have the appropriate access to files and directories. This guide provides a detailed explanation of how file permissions work in Linux, along with relevant examples.
+
+## Key Concepts of Linux File Permissions
+
+### 1. **File Permissions Overview**
+In Linux, every file and directory has associated permissions that determine who can read, write, or execute them. Permissions are divided into three categories:
+
+- **Owner**: The user who owns the file.
+- **Group**: A group of users that have shared access to the file.
+- **Others**: All other users on the system.
+
+### 2. **Types of Permissions**
+There are three types of permissions that can be assigned to files and directories:
+
+- **Read (`r`)**: Permission to read the contents of a file or list the contents of a directory.
+- **Write (`w`)**: Permission to modify the contents of a file or add/remove files in a directory.
+- **Execute (`x`)**: Permission to execute a file (if it is a program) or access a directory.
+
+### 3. **Understanding Permission Representation**
+File permissions are represented in two ways: symbolic notation and numeric (octal) notation.
+
+#### A. **Symbolic Notation**
+Permissions are displayed in a string format when using the `ls -l` command. The first character indicates the type of file, followed by three sets of permissions for the owner, group, and others.
+
+- **Example**:
+```
+-rwxr-xr-- 1 john users 12345 Jan 1 12:00 example.txt
+```
+- Breakdown:
+  - `-`: Indicates a regular file (a `d` would indicate a directory).
+  - `rwx`: Owner (john) has read, write, and execute permissions.
+  - `r-x`: Group (users) has read and execute permissions.
+  - `r--`: Others have read permissions only.
+
+#### B. **Numeric (Octal) Notation**
+Permissions can also be represented using octal numbers, where each permission type is assigned a value:
+- Read (`r`) = 4
+- Write (`w`) = 2
+- Execute (`x`) = 1
+
+The values are summed for each category:
+- Owner: 4 + 2 + 1 = 7 (rwx)
+- Group: 4 + 0 + 1 = 5 (r-x)
+- Others: 4 + 0 + 0 = 4 (r--)
+
+In this case, the numeric representation would be `754`.
+
+### 4. **Changing Permissions**
+The `chmod` command is used to change file permissions. You can use either symbolic or numeric notation.
+
+#### A. **Using Symbolic Notation**
+- **Command**: `chmod [who][operation][permissions] <file>`
+  - **who**: `u` (user/owner), `g` (group), `o` (others), `a` (all)
+  - **operation**: `+` (add), `-` (remove), `=` (set exact permissions)
+  - **permissions**: `r`, `w`, `x`
+
+**Example**: To add execute permission for the owner:
+```bash
+chmod u+x example.txt
+```
+
+**Example**: To remove write permission for the group:
+```bash
+chmod g-w example.txt
+```
+
+#### B. **Using Numeric Notation**
+- **Command**: `chmod <numeric_value> <file>`
+
+**Example**: To set permissions to `rwxr-xr--` (754):
+```bash
+chmod 754 example.txt
+```
+
+### 5. **Changing Ownership**
+The `chown` command is used to change the owner and/or group of a file or directory.
+
+- **Command**: `chown [new_owner]:[new_group] <file>`
+
+**Example**: To change the owner to `alice` and the group to `developers`:
+```bash
+chown alice:developers example.txt
+```
+
+### 6. **Managing Groups**
+Groups are used to manage permissions for multiple users. Users can be added to or removed from groups using the `usermod` command.
+
+- **Adding a User to a Group**:
+  - **Command**: `sudo usermod -aG <group> <user>`
+
+**Example**: To add user `john` to the `developers` group:
+```bash
+sudo usermod -aG developers john
+```
+
+- **Removing a User from a Group**:
+  - **Command**: `sudo gpasswd -d <user> <group>`
+
+**Example**: To remove user `john` from the `developers` group:
+```bash
+sudo gpasswd -d john developers
+```
+### 7. **Viewing Permissions and Ownership**
+To view the permissions and ownership of files and directories, you can use the `ls -l` command. This command lists files in the current directory along with their permissions, number of links, owner, group, size, and modification date.
+
+**Example**:
+```bash
+ls -l
+```
+Output:
+```
+total 12
+-rwxr-xr-- 1 john users 12345 Jan 1 12:00 example.txt
+drwxr-xr-x 2 alice developers 4096 Jan 1 12:00 project
+```
+- In this output:
+  - `example.txt` is a regular file with permissions `rwxr-xr--`, owned by user `john` and group `users`.
+  - `project` is a directory with permissions `rwxr-xr-x`, owned by user `alice` and group `developers`.
 
 ## Scripting 
 
