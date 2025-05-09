@@ -335,9 +335,48 @@ Visual mode allows you to select text for copying or deleting. To enter Visual m
    vi existingfile.txt
    ```
 2. Navigate to the line you want to edit using Normal mode.
-3. Press `i` to enter Insert mode, make your changes, and press
+3. Press `i` to enter Insert mode, make your changes, and press `Esc` to return to Normal mode.
+4. To save your changes and exit, type `:wq` and press `Enter`. If you want to exit without saving, type `:q!` and press `Enter`.
 
-## Linux Package Managment 
+### Example 3: Searching for Text
+1. Open a file:
+   ```bash
+   vi myfile.txt
+   ```
+2. Press `Esc` to ensure you are in Normal mode.
+3. Type `/search_term` and press `Enter` to search for "search_term" in the file.
+4. Press `n` to go to the next occurrence or `N` to go to the previous occurrence.
+
+### Example 4: Replacing Text
+1. Open a file:
+   ```bash
+   vi myfile.txt
+   ```
+2. Press `Esc` to ensure you are in Normal mode.
+3. Type `:%s/old_text/new_text/g` and press `Enter` to replace all occurrences of "old_text" with "new_text" in the entire file.
+4. To confirm each replacement, you can use `:%s/old_text/new_text/gc`, which will prompt you for confirmation before each replacement.
+
+### Example 5: Copying and Pasting Text
+1. Open a file:
+   ```bash
+   vi myfile.txt
+   ```
+2. Navigate to the line you want to copy using Normal mode.
+3. Type `yy` to copy the current line.
+4. Move to the desired location and type `p` to paste the copied line below the current line.
+
+### Example 6: Using Visual Mode
+1. Open a file:
+   ```bash
+   vi myfile.txt
+   ```
+2. Press `v` to enter Visual mode.
+3. Use the arrow keys to select the text you want to copy or delete.
+4. Once selected, you can:
+   - Press `y` to copy the selected text.
+   - Press `d` to delete the selected text.
+5. Press `Esc` to exit Visual mode.
+
 
 Package management is a crucial aspect of Linux operating systems, allowing users to install, update, remove, and manage software applications and libraries efficiently. Each Linux distribution typically comes with its own package management system, which simplifies the process of handling software packages.
 
