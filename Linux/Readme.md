@@ -363,8 +363,7 @@ Package managers also manage conflicts that may arise when two packages require 
 
 - **Example**: If you attempt to install a package that conflicts with an already installed package, the package manager may suggest removing the conflicting package or provide options to proceed with the installation.
 
-## Linux File Permisson 
-# Linux File Permissions: User & Group Management
+## Linux File Permissions: User & Group Management
 
 Understanding file permissions and user/group management in Linux is essential for maintaining system security and ensuring that users have the appropriate access to files and directories. This guide provides a detailed explanation of how file permissions work in Linux, along with relevant examples.
 
