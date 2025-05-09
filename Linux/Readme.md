@@ -220,6 +220,122 @@ The `ip route del default via` command deletes the default route via the specifi
 
 The `iptables -D OUTPUT` command deletes a rule from the OUTPUT chain of the firewall. For example, `iptables -D OUTPUT -d 192.168.0.0/24 -j ACCEPT` deletes the rule.
 
+## VI Editor
+
+The VI editor (pronounced "vee-eye") is a powerful text editor available on most Unix and Linux systems. It is widely used for editing configuration files, scripts, and other text files due to its efficiency and versatility. This guide provides a detailed overview of the VI editor, including its modes, commands, and practical examples.
+
+## Key Concepts of VI Editor
+
+### 1. **What is VI?**
+VI is a modal text editor, meaning it operates in different modes, each with its own set of commands. The two primary modes are:
+
+- **Normal Mode**: The default mode for navigating and manipulating text.
+- **Insert Mode**: The mode for inserting and editing text.
+
+### 2. **Starting VI**
+To open a file in VI, use the following command in the terminal:
+```bash
+vi filename
+```
+If the file does not exist, VI will create a new file with that name.
+
+### 3. **Exiting VI**
+To exit VI, you need to be in Normal mode. You can switch to Normal mode by pressing the `Esc` key. Here are some common exit commands:
+
+- **Save and Exit**: 
+  ```bash
+  :wq
+  ```
+- **Exit Without Saving**:
+  ```bash
+  :q!
+  ```
+- **Save Without Exiting**:
+  ```bash
+  :w
+  ```
+
+## VI Modes
+
+### 1. **Normal Mode**
+In Normal mode, you can navigate the text and perform various operations. Here are some basic commands:
+
+- **Navigation**:
+  - `h`: Move left
+  - `j`: Move down
+  - `k`: Move up
+  - `l`: Move right
+  - `gg`: Go to the beginning of the file
+  - `G`: Go to the end of the file
+
+- **Editing**:
+  - `x`: Delete the character under the cursor
+  - `dd`: Delete the current line
+  - `yy`: Copy (yank) the current line
+  - `p`: Paste the copied line below the current line
+
+### 2. **Insert Mode**
+To enter Insert mode from Normal mode, press `i` (insert before the cursor) or `a` (append after the cursor). In Insert mode, you can type and edit text as you would in a standard text editor.
+
+- **Exiting Insert Mode**: Press the `Esc` key to return to Normal mode.
+
+### 3. **Visual Mode**
+Visual mode allows you to select text for copying or deleting. To enter Visual mode, press `v` in Normal mode. You can then use navigation keys to select text. Once selected, you can use commands like `y` to copy or `d` to delete the selected text.
+
+## Common VI Commands
+
+### 1. **Editing Text**
+- **Insert Text**: 
+  - `i`: Insert before the cursor
+  - `a`: Append after the cursor
+  - `o`: Open a new line below the current line
+
+### 2. **Deleting Text**
+- **Delete Characters and Lines**:
+  - `x`: Delete the character under the cursor
+  - `dd`: Delete the current line
+  - `d2d`: Delete the next two lines
+
+### 3. **Copying and Pasting**
+- **Yank and Paste**:
+  - `yy`: Copy the current line
+  - `y2y`: Copy the next two lines
+  - `p`: Paste the copied text below the current line
+
+### 4. **Searching and Replacing**
+- **Search**:
+  - `/pattern`: Search forward for "pattern"
+  - `?pattern`: Search backward for "pattern"
+  - `n`: Move to the next occurrence
+  - `N`: Move to the previous occurrence
+
+- **Replace**:
+  - `:%s/old/new/g`: Replace all occurrences of "old" with "new" in the entire file
+  - `:s/old/new/g`: Replace all occurrences in the current line
+
+### 5. **Undo and Redo**
+- **Undo Changes**: 
+  - `u`: Undo the last change
+- **Redo Changes**: 
+  - `Ctrl + r`: Redo the last undone change
+
+## Practical Examples
+
+### Example 1: Creating a New File
+1. Open a new file:
+   ```bash
+   vi newfile.txt
+   ```
+2. Press `i` to enter Insert mode and type your content.
+3. Press `Esc`, then type `:wq` to save and exit.
+
+### Example 2: Editing an Existing File
+1. Open an existing file:
+   ```bash
+   vi existingfile.txt
+   ```
+2. Navigate to the line you want to edit using Normal mode.
+3. Press `i` to enter Insert mode, make your changes, and press
 
 ## Linux Package Managment 
 
