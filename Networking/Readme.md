@@ -335,3 +335,129 @@ For example, if an organization has a CIDR block of **192.168.0.0/22**, it can c
 - **192.168.0.0/24**: 256 addresses
 - **192.168.1.0/25**: 128 addresses
 - **192.168.2.0/26**: 64 addresses
+
+## Network Models
+
+### Repository Structure
+```
+networking/
+│
+├── ositcpip/
+│   ├── README.md
+│   ├── osi_model.md
+│   └── tcp_ip_model.md
+│
+└── dns/
+    ├── README.md
+    └── dns_overview.md
+```
+
+### 1. OSI and TCP/IP Models
+
+#### `osi_model.md`
+```markdown
+# OSI Model
+
+The OSI (Open Systems Interconnection) model is a conceptual framework used to understand and implement network protocols in seven layers. Each layer serves a specific function and communicates with the layers directly above and below it.
+
+## Layers of the OSI Model
+
+1. **Physical Layer**: 
+   - Responsible for the physical connection between devices.
+   - Examples: Cables, switches, and network interface cards (NICs).
+
+2. **Data Link Layer**: 
+   - Provides node-to-node data transfer and error detection/correction.
+   - Examples: Ethernet, PPP (Point-to-Point Protocol).
+
+3. **Network Layer**: 
+   - Manages device addressing and determines the best path for data transfer.
+   - Examples: IP (Internet Protocol), ICMP (Internet Control Message Protocol).
+
+4. **Transport Layer**: 
+   - Ensures complete data transfer and error recovery.
+   - Examples: TCP (Transmission Control Protocol), UDP (User Datagram Protocol).
+
+5. **Session Layer**: 
+   - Manages sessions between applications.
+   - Examples: APIs, sockets.
+
+6. **Presentation Layer**: 
+   - Translates data between the application layer and the network.
+   - Examples: Encryption, compression.
+
+7. **Application Layer**: 
+   - Closest to the end user, it interacts with software applications.
+   - Examples: HTTP, FTP, SMTP.
+
+## Example
+When you send an email:
+- The application layer (SMTP) prepares the email.
+- The transport layer (TCP) ensures it is sent reliably.
+- The network layer (IP) routes it to the recipient's server.
+- The data link and physical layers handle the actual transmission over the network.
+```
+
+#### `tcp_ip_model.md`
+```markdown
+# TCP/IP Model
+
+The TCP/IP (Transmission Control Protocol/Internet Protocol) model is a more simplified framework than the OSI model, consisting of four layers.
+
+## Layers of the TCP/IP Model
+
+1. **Link Layer**: 
+   - Corresponds to the OSI's Physical and Data Link layers.
+   - Examples: Ethernet, Wi-Fi.
+
+2. **Internet Layer**: 
+   - Corresponds to the OSI's Network layer.
+   - Responsible for addressing and routing.
+   - Example: IP.
+
+3. **Transport Layer**: 
+   - Corresponds to the OSI's Transport layer.
+   - Ensures reliable or unreliable delivery.
+   - Examples: TCP, UDP.
+
+4. **Application Layer**: 
+   - Corresponds to the OSI's Session, Presentation, and Application layers.
+   - Interfaces with end-user applications.
+   - Examples: HTTP, FTP, DNS.
+
+## Example
+When you access a website:
+- The application layer (HTTP) sends a request.
+- The transport layer (TCP) ensures the request is sent reliably.
+- The internet layer (IP) routes the request to the web server.
+- The link layer transmits the data over the network.
+```
+
+### 2. Domain Name System (DNS)
+
+#### `dns_overview.md`
+```markdown
+# Domain Name System (DNS)
+
+The Domain Name System (DNS) is a hierarchical and decentralized naming system used to translate human-readable domain names into IP addresses.
+
+## How DNS Works
+
+1. **Domain Name Resolution**:
+   - When a user types a URL in a browser, a DNS query is initiated.
+   - The query is sent to a DNS resolver, which is usually provided by the user's ISP.
+
+2. **Query Process**:
+   - The resolver checks its cache for the IP address.
+   - If not found, it queries a root DNS server.
+   - The root server directs the resolver to a TLD (Top-Level Domain) server (e.g., .com, .org).
+   - The TLD server points to the authoritative DNS server for the specific domain.
+
+3. **Response**:
+   - The authoritative DNS server responds with the IP address.
+   - The resolver caches the response for future queries and returns the IP address to the user's browser.
+
+## Example
+- User types `www.example.com`.
+- DNS resolver queries the root server, which points to the `.com` TLD server.
+- The TLD server points to the authoritative server for `example.com`, which returns
