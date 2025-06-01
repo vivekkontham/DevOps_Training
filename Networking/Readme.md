@@ -486,8 +486,6 @@ print("Plaintext:", pt)
 ```
 ```
 
-#### `asymmetric_encryption.md`
-```markdown
 # Asymmetric Encryption
 
 Asymmetric encryption uses a pair of keys: a public key for encryption and a private key for decryption. This allows secure communication without the need to share a secret key.
