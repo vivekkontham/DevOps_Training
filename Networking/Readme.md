@@ -338,24 +338,9 @@ For example, if an organization has a CIDR block of **192.168.0.0/22**, it can c
 
 ## Network Models
 
-### Repository Structure
-```
-networking/
-│
-├── ositcpip/
-│   ├── README.md
-│   ├── osi_model.md
-│   └── tcp_ip_model.md
-│
-└── dns/
-    ├── README.md
-    └── dns_overview.md
-```
 
 ### 1. OSI and TCP/IP Models
 
-#### `osi_model.md`
-```markdown
 # OSI Model
 
 The OSI (Open Systems Interconnection) model is a conceptual framework used to understand and implement network protocols in seven layers. Each layer serves a specific function and communicates with the layers directly above and below it.
@@ -398,8 +383,6 @@ When you send an email:
 - The data link and physical layers handle the actual transmission over the network.
 ```
 
-#### `tcp_ip_model.md`
-```markdown
 # TCP/IP Model
 
 The TCP/IP (Transmission Control Protocol/Internet Protocol) model is a more simplified framework than the OSI model, consisting of four layers.
@@ -435,8 +418,6 @@ When you access a website:
 
 ### 2. Domain Name System (DNS)
 
-#### `dns_overview.md`
-```markdown
 # Domain Name System (DNS)
 
 The Domain Name System (DNS) is a hierarchical and decentralized naming system used to translate human-readable domain names into IP addresses.
@@ -461,3 +442,114 @@ The Domain Name System (DNS) is a hierarchical and decentralized naming system u
 - User types `www.example.com`.
 - DNS resolver queries the root server, which points to the `.com` TLD server.
 - The TLD server points to the authoritative server for `example.com`, which returns
+
+
+
+### 1. Encryption
+
+
+# Symmetric Encryption
+
+Symmetric encryption is a type of encryption where the same key is used for both encryption and decryption. This means that both the sender and the receiver must have access to the secret key.
+
+## Characteristics
+- **Key Management**: The key must be kept secret and shared securely between parties.
+- **Speed**: Generally faster than asymmetric encryption due to simpler algorithms.
+- **Use Cases**: Suitable for encrypting large amounts of data.
+
+## Common Algorithms
+- **AES (Advanced Encryption Standard)**: Widely used for securing data.
+- **DES (Data Encryption Standard)**: An older standard, now considered insecure.
+- **3DES (Triple DES)**: An enhancement of DES, applying the algorithm three times.
+
+## Example
+```python
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+import os
+
+# Key and data
+key = os.urandom(16)  # AES key must be either 16, 24, or 32 bytes long
+data = b"Secret Message"
+
+# Encrypt
+cipher = AES.new(key, AES.MODE_CBC)
+ct_bytes = cipher.encrypt(pad(data, AES.block_size))
+iv = cipher.iv
+
+# Decrypt
+cipher = AES.new(key, AES.MODE_CBC, iv)
+pt = unpad(cipher.decrypt(ct_bytes), AES.block_size)
+
+print("Ciphertext:", ct_bytes)
+print("Plaintext:", pt)
+```
+```
+
+#### `asymmetric_encryption.md`
+```markdown
+# Asymmetric Encryption
+
+Asymmetric encryption uses a pair of keys: a public key for encryption and a private key for decryption. This allows secure communication without the need to share a secret key.
+
+## Characteristics
+- **Key Pair**: One key is public and can be shared openly, while the other is private and must be kept secret.
+- **Security**: More secure for key exchange and digital signatures.
+- **Use Cases**: Suitable for secure communications, digital signatures, and key exchange.
+
+## Common Algorithms
+- **RSA (Rivest-Shamir-Adleman)**: One of the first public-key cryptosystems.
+- **ECC (Elliptic Curve Cryptography)**: Offers similar security with smaller key sizes.
+
+## Example
+```python
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
+import base64
+
+# Generate key pair
+key = RSA.generate(2048)
+private_key = key.export_key()
+public_key = key.publickey().export_key()
+
+# Encrypt
+cipher = PKCS1_OAEP.new(RSA.import_key(public_key))
+ciphertext = cipher.encrypt(b"Secret Message")
+
+# Decrypt
+cipher = PKCS1_OAEP.new(RSA.import_key(private_key))
+plaintext = cipher.decrypt(ciphertext)
+
+print("Ciphertext:", base64.b64encode(ciphertext))
+print("Plaintext:", plaintext)
+```
+```
+
+### 2. Hashing
+
+# Hashing
+
+Hashing is a process that transforms input data of any size into a fixed-size string of characters, which is typically a digest that uniquely represents the data. Hash functions are commonly used in various applications, including data integrity verification and password storage.
+
+## Characteristics
+- **Deterministic**: The same input will always produce the same hash output.
+- **Fixed Size**: Regardless of the input size, the output is always of a fixed length.
+- **One-Way**: Hashing is a one-way function; it cannot be reversed to retrieve the original input.
+
+## Common Hash Functions
+- **MD5 (Message Digest Algorithm 5)**: Fast but not secure against collisions.
+- **SHA-1 (Secure Hash Algorithm 1)**: More secure than MD5 but still vulnerable to attacks.
+- **SHA-256**: Part of the SHA-2 family, widely used and considered secure.
+
+## Example
+```python
+import hashlib
+
+# Input data
+data = b"Hello, World!"
+
+# Hashing using SHA-256
+hash_object = hashlib.sha256(data)
+hex_dig = hash_object.hexdigest()
+
+print("SHA-256 Hash:", hex_d
