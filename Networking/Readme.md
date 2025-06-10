@@ -1,7 +1,5 @@
 # Introduction to Computer Networking
 
-# Importance of Computer Networking
-
 ## Communication
 "One of the primary functions of networking is to enable various forms of communication. In today’s fast-paced world, effective communication is essential for success."
 
@@ -119,12 +117,12 @@
 "In a large office building, a bridge can connect two separate LANs on different floors. For example, if the marketing department is on one floor and the sales department is on another, a bridge can facilitate communication between the two departments, allowing them to share resources and collaborate effectively."
 
 
-## What is a Protocol?
+# What is a Protocol?
 
-### Definition
+## Definition
 A protocol in computer networking is a set of rules and conventions that govern how data is transmitted and received over a network. Protocols define the format, timing, sequencing, and error-checking mechanisms for data exchange, ensuring that devices can communicate effectively.
 
-### Importance of Protocols
+## Importance of Protocols
 Protocols are essential for enabling interoperability between different devices and systems. They ensure that data is sent and received accurately, regardless of the hardware or software being used. Without protocols, communication between devices would be chaotic and unreliable.
 
 ### Examples of Common Protocols
@@ -135,12 +133,12 @@ Protocols are essential for enabling interoperability between different devices 
 
 ---
 
-## IP Address and Types of IP Addresses
+# IP Address and Types of IP Addresses
 
-### Definition
+## Definition
 An IP address (Internet Protocol address) is a unique numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. It serves two main functions: identifying the host or network interface and providing the location of the device in the network.
 
-### Types of IP Addresses
+## Types of IP Addresses
 1. **IPv4 (Internet Protocol version 4)**: The most widely used version of IP addresses, consisting of 32 bits, typically represented in decimal format as four octets (e.g., 192.168.1.1). IPv4 can support approximately 4.3 billion unique addresses.
 
 2. **IPv6 (Internet Protocol version 6)**: The successor to IPv4, designed to address the limitations of IPv4, particularly the shortage of available addresses. IPv6 uses 128 bits, allowing for a vastly larger address space (approximately 340 undecillion addresses). IPv6 addresses are represented in hexadecimal format, separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
@@ -151,9 +149,9 @@ An IP address (Internet Protocol address) is a unique numerical label assigned t
 
 ---
 
-## IP Address Classes (IPv4 & IPv6)
+# IP Address Classes (IPv4 & IPv6)
 
-### IPv4 Address Classes
+## IPv4 Address Classes
 IPv4 addresses are divided into five classes (A, B, C, D, and E) based on their leading bits and intended use:
 
 1. **Class A**:
@@ -224,13 +222,13 @@ Global unicast addresses are routable on the internet and are equivalent to publ
 **Example**: 2001:0db8:85a3::8a2e:0370:7334
 
 
-## Loopback
+# Loopback
 
-### Definition
+## Definition
 
 The loopback address is a special IP address that is used to test network software without physically transmitting packets over a network. It allows a device to communicate with itself, which is useful for troubleshooting and testing.
 
-### IPv4 Loopback Address
+## IPv4 Loopback Address
 
 In IPv4, the loopback address is defined as **127.0.0.1**. The entire range from **127.0.0.0** to **127.255.255.255** is reserved for loopback purposes, but **127.0.0.1** is the most commonly used address.
 
@@ -240,7 +238,7 @@ In IPv4, the loopback address is defined as **127.0.0.1**. The entire range from
   ping 127.0.0.1
   ```
 
-### IPv6 Loopback Address
+## IPv6 Loopback Address
 
 In IPv6, the loopback address is represented as **::1**. This address serves the same purpose as the IPv4 loopback address.
 
@@ -250,22 +248,22 @@ In IPv6, the loopback address is represented as **::1**. This address serves the
   ping ::1
   ```
 
-### Purpose
+## Purpose
 
 - **Testing**: Loopback addresses are primarily used for testing network applications and services.
 - **Troubleshooting**: They help diagnose issues with network configurations and software without involving external networks.
 
-## Subnetting
+# Subnetting
 
-### Definition
+## Definition
 
 Subnetting is the process of dividing a larger network into smaller, more manageable sub-networks (subnets). This improves network performance and security by reducing broadcast domains and allowing for better organization of IP addresses.
 
-### Subnetting in IPv4
+## Subnetting in IPv4
 
 In IPv4, subnetting involves borrowing bits from the host portion of an IP address to create additional network addresses. The subnet mask determines which part of the IP address is the network and which part is the host.
 
-#### Example
+### Example
 
 Consider the IP address **192.168.1.0** with a default subnet mask of **255.255.255.0** (or /24). This allows for 256 addresses (0-255), with 254 usable for hosts.
 
@@ -278,11 +276,11 @@ If we want to create 4 subnets, we can borrow 2 bits from the host portion:
   - 192.168.1.128/26 (Hosts: 192.168.1.129 to 192.168.1.190)
   - 192.168.1.192/26 (Hosts: 192.168.1.193 to 192.168.1.254)
 
-### Subnetting in IPv6
+## Subnetting in IPv6
 
 In IPv6, subnetting is less common due to the vast address space, but it can still be done by dividing the address into subnets using the prefix length.
 
-#### Example
+### Example
 
 Consider the IPv6 address **2001:0db8:85a3::/64**. This allows for a large number of subnets.
 
@@ -294,23 +292,23 @@ If we want to create 4 subnets, we can use a /66 prefix:
   - 2001:0db8:85a3:0002::/66
   - 2001:0db8:85a3:0003::/66
 
-### Purpose
+## Purpose
 
 - **Efficient IP Address Management**: Subnetting allows for better allocation of IP addresses based on the size of the network.
 - **Improved Security**: By isolating subnets, organizations can enhance security and control traffic flow.
 - **Reduced Broadcast Traffic**: Smaller subnets reduce the amount of broadcast traffic, improving overall network performance.
 
-## Classless Inter-Domain Routing (CIDR)
+# Classless Inter-Domain Routing (CIDR)
 
-### Definition
+## Definition
 
 CIDR is a method for allocating IP addresses and routing Internet Protocol packets. It replaces the traditional class-based system (Class A, B, C) with a more flexible and efficient way to manage IP address space.
 
-### CIDR Notation
+## CIDR Notation
 
 CIDR notation combines the IP address with a suffix that indicates the number of bits in the network prefix. For example, **192.168.1.0/24** indicates that the first 24 bits are used for the network portion, leaving the remaining bits for host addresses.
 
-### Benefits of CIDR
+## Benefits of CIDR
 
 1. **Efficient Use of IP Address Space**: CIDR allows for variable-length subnet masking (VLSM), which means that networks can be allocated only the number of addresses they need, rather than being forced into fixed class sizes. This helps to conserve IP address space.
 
@@ -318,7 +316,7 @@ CIDR notation combines the IP address with a suffix that indicates the number of
 
 3. **Flexibility**: CIDR provides greater flexibility in designing networks, allowing for more granular control over how IP addresses are allocated and managed.
 
-### Example of CIDR
+## Example of CIDR
 
 Consider the following CIDR allocations:
 
@@ -326,7 +324,7 @@ Consider the following CIDR allocations:
 - **10.0.0.0/8**: This allocation provides 16,777,216 IP addresses, suitable for a large organization or ISP.
 - **172.16.0.0/12**: This allocation provides 1,048,576 IP addresses, often used for private networks.
 
-### CIDR and Subnetting
+## CIDR and Subnetting
 
 CIDR is closely related to subnetting, as both concepts involve dividing IP address space into smaller segments. However, CIDR allows for more flexibility in the size of these segments compared to traditional subnetting methods.
 
@@ -336,10 +334,9 @@ For example, if an organization has a CIDR block of **192.168.0.0/22**, it can c
 - **192.168.1.0/25**: 128 addresses
 - **192.168.2.0/26**: 64 addresses
 
-## Network Models
+# Network Models
 
 
-### 1. OSI and TCP/IP Models
 
 # OSI Model
 
@@ -375,13 +372,13 @@ The OSI (Open Systems Interconnection) model is a conceptual framework used to u
    - Closest to the end user, it interacts with software applications.
    - Examples: HTTP, FTP, SMTP.
 
-## Example
+### Example
 When you send an email:
 - The application layer (SMTP) prepares the email.
 - The transport layer (TCP) ensures it is sent reliably.
 - The network layer (IP) routes it to the recipient's server.
 - The data link and physical layers handle the actual transmission over the network.
-```
+
 
 # TCP/IP Model
 
@@ -408,17 +405,16 @@ The TCP/IP (Transmission Control Protocol/Internet Protocol) model is a more sim
    - Interfaces with end-user applications.
    - Examples: HTTP, FTP, DNS.
 
-## Example
+### Example
 When you access a website:
 - The application layer (HTTP) sends a request.
 - The transport layer (TCP) ensures the request is sent reliably.
 - The internet layer (IP) routes the request to the web server.
 - The link layer transmits the data over the network.
-```
 
-### 2. Domain Name System (DNS)
 
 # Domain Name System (DNS)
+
 
 The Domain Name System (DNS) is a hierarchical and decentralized naming system used to translate human-readable domain names into IP addresses.
 
@@ -438,31 +434,30 @@ The Domain Name System (DNS) is a hierarchical and decentralized naming system u
    - The authoritative DNS server responds with the IP address.
    - The resolver caches the response for future queries and returns the IP address to the user's browser.
 
-## Example
+### Example
 - User types `www.example.com`.
 - DNS resolver queries the root server, which points to the `.com` TLD server.
 - The TLD server points to the authoritative server for `example.com`, which returns
 
 
 
-### 1. Encryption
+# Encryption
 
-
-# Symmetric Encryption
+## Symmetric Encryption
 
 Symmetric encryption is a type of encryption where the same key is used for both encryption and decryption. This means that both the sender and the receiver must have access to the secret key.
 
-## Characteristics
+### Characteristics
 - **Key Management**: The key must be kept secret and shared securely between parties.
 - **Speed**: Generally faster than asymmetric encryption due to simpler algorithms.
 - **Use Cases**: Suitable for encrypting large amounts of data.
 
-## Common Algorithms
+### Common Algorithms
 - **AES (Advanced Encryption Standard)**: Widely used for securing data.
 - **DES (Data Encryption Standard)**: An older standard, now considered insecure.
 - **3DES (Triple DES)**: An enhancement of DES, applying the algorithm three times.
 
-## Example
+#### Example
 ```python
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
@@ -484,22 +479,22 @@ pt = unpad(cipher.decrypt(ct_bytes), AES.block_size)
 print("Ciphertext:", ct_bytes)
 print("Plaintext:", pt)
 ```
-```
 
-# Asymmetric Encryption
+
+## Asymmetric Encryption
 
 Asymmetric encryption uses a pair of keys: a public key for encryption and a private key for decryption. This allows secure communication without the need to share a secret key.
 
-## Characteristics
+### Characteristics
 - **Key Pair**: One key is public and can be shared openly, while the other is private and must be kept secret.
 - **Security**: More secure for key exchange and digital signatures.
 - **Use Cases**: Suitable for secure communications, digital signatures, and key exchange.
 
-## Common Algorithms
+### Common Algorithms
 - **RSA (Rivest-Shamir-Adleman)**: One of the first public-key cryptosystems.
 - **ECC (Elliptic Curve Cryptography)**: Offers similar security with smaller key sizes.
 
-## Example
+#### Example
 ```python
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
@@ -521,25 +516,23 @@ plaintext = cipher.decrypt(ciphertext)
 print("Ciphertext:", base64.b64encode(ciphertext))
 print("Plaintext:", plaintext)
 ```
-```
 
-### 2. Hashing
 
 # Hashing
 
 Hashing is a process that transforms input data of any size into a fixed-size string of characters, which is typically a digest that uniquely represents the data. Hash functions are commonly used in various applications, including data integrity verification and password storage.
 
-## Characteristics
+### Characteristics
 - **Deterministic**: The same input will always produce the same hash output.
 - **Fixed Size**: Regardless of the input size, the output is always of a fixed length.
 - **One-Way**: Hashing is a one-way function; it cannot be reversed to retrieve the original input.
 
-## Common Hash Functions
+### Common Hash Functions
 - **MD5 (Message Digest Algorithm 5)**: Fast but not secure against collisions.
 - **SHA-1 (Secure Hash Algorithm 1)**: More secure than MD5 but still vulnerable to attacks.
 - **SHA-256**: Part of the SHA-2 family, widely used and considered secure.
 
-## Example
+#### Example
 ```python
 import hashlib
 
@@ -553,10 +546,9 @@ hex_dig = hash_object.hexdigest()
 print("SHA-256 Hash:", hex_d) 
 
 Creating a comprehensive GitHub page that covers Network Components and Services, Network Troubleshooting Tools, Routing, and VPNs involves structuring the content clearly and providing detailed explanations along with examples. Below is a suggested format and content that you can use for a single GitHub page.
+```
 
-### GitHub Page: Networking Overview
 
-```markdown
 # Networking Overview
 
 This document provides an overview of key networking concepts, including network components and services, troubleshooting tools, routing, and Virtual Private Networks (VPNs).
