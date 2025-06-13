@@ -427,3 +427,123 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
 
 ```
 ---
+
+## 🔁 Git Flow
+
+**Created by:** Vincent Driessen  
+**Best for:** Large projects with scheduled releases (e.g., enterprise software)
+
+### 🔧 Branches in Git Flow
+
+1. **`main` (or `master`)** – Always contains production-ready code.
+2. **`develop`** – Integration branch for features; reflects the latest delivered development changes.
+3. **`feature/*`** – Used for developing new features.
+4. **`release/*`** – Prepares code for production release.
+5. **`hotfix/*`** – Used to quickly patch production issues.
+
+### 🔄 Workflow
+
+1. **Start a feature** from `develop`:
+   ```bash
+   git checkout develop
+   git checkout -b feature/awesome-feature
+   ```
+
+2. **Finish a feature**:
+   ```bash
+   git checkout develop
+   git merge feature/awesome-feature
+   git branch -d feature/awesome-feature
+   ```
+
+3. **Create a release**:
+   ```bash
+   git checkout develop
+   git checkout -b release/1.0.0
+   ```
+
+4. **Finish a release**:
+   ```bash
+   git checkout main
+   git merge release/1.0.0
+   git tag -a 1.0.0
+   git checkout develop
+   git merge release/1.0.0
+   ```
+
+5. **Hotfix a bug**:
+   ```bash
+   git checkout main
+   git checkout -b hotfix/1.0.1
+   ```
+
+6. **Finish a hotfix**:
+   ```bash
+   git checkout main
+   git merge hotfix/1.0.1
+   git tag -a 1.0.1
+   git checkout develop
+   git merge hotfix/1.0.1
+   ```
+
+### ✅ Pros
+- Clear structure for managing releases and hotfixes.
+- Ideal for parallel development and long-term projects.
+
+### ❌ Cons
+- Can be **complex** and **heavy** for small teams or fast-paced environments.
+- Requires discipline in managing multiple branches.
+
+---
+
+## 🌐 GitHub Flow
+
+**Created by:** GitHub  
+**Best for:** Continuous deployment, web apps, startups
+
+### 🔧 Branches in GitHub Flow
+
+1. **`main`** – Always deployable.
+2. **Feature branches** – Created from `main` for each new piece of work.
+
+### 🔄 Workflow
+
+1. **Create a branch**:
+   ```bash
+   git checkout -b feature/short-description
+   ```
+
+2. **Push and open a Pull Request (PR)**:
+   - Push to GitHub.
+   - Open a PR to `main`.
+
+3. **Discuss and review**:
+   - Team reviews the PR.
+   - CI/CD runs tests.
+
+4. **Merge to `main`**:
+   - Once approved and tested, merge the PR.
+   - Deploy immediately if needed.
+
+### ✅ Pros
+- **Simple and fast** – great for continuous delivery.
+- Encourages frequent integration and deployment.
+- Easy to understand and adopt.
+
+### ❌ Cons
+- No built-in support for release or hotfix branches.
+- Not ideal for complex release cycles or multiple environments.
+
+---
+
+## 🆚 Git Flow vs GitHub Flow
+
+| Feature               | Git Flow                          | GitHub Flow                      |
+|-----------------------|-----------------------------------|----------------------------------|
+| Complexity            | High                              | Low                              |
+| Best for              | Scheduled releases                | Continuous deployment            |
+| Branches              | `main`, `develop`, `feature/*`, `release/*`, `hotfix/*` | `main`, `feature/*`              |
+| Release Management    | Built-in                          | Manual or external tools needed  |
+| Hotfix Support        | Yes                               | Manual                           |
+
+---
