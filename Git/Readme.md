@@ -425,7 +425,7 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
 - Use `git branch` to manage branches.
 - Use `git clone` to copy a remote repo locally.
 
-```
+
 ---
 
 ## 🔁 Git Flow
@@ -545,5 +545,79 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
 | Branches              | `main`, `develop`, `feature/*`, `release/*`, `hotfix/*` | `main`, `feature/*`              |
 | Release Management    | Built-in                          | Manual or external tools needed  |
 | Hotfix Support        | Yes                               | Manual                           |
+
+---
+## Git Advanced Commands
+### 🔄 1. `git reset`
+
+**Purpose:** Move the current branch pointer to a different commit and optionally modify the staging area and working directory.
+
+#### 🔧 Types of Reset
+
+| Command | Effect on Commit History | Staging Area | Working Directory |
+|---------|--------------------------|---------------|-------------------|
+| `--soft`  | Moves HEAD only           | Preserved      | Preserved          |
+| `--mixed` (default) | Moves HEAD and resets staging | Reset         | Preserved          |
+| `--hard`  | Moves HEAD, resets staging | Reset         | Reset              |
+
+#### 📌 Example
+```bash
+git reset --soft HEAD~1   # Undo last commit, keep changes staged
+git reset --mixed HEAD~1  # Undo last commit, unstage changes
+git reset --hard HEAD~1   # Undo last commit, discard changes
+```
+
+#### ⚠️ Caution
+- `--hard` is **destructive**—you lose uncommitted work.
+- Use `reset` only for **local history rewriting**.
+
+---
+
+### 🔁 2. `git revert`
+
+**Purpose:** Create a new commit that undoes the changes made by a previous commit.
+
+#### ✅ Safe for Shared Repos
+Unlike `reset`, `revert` is **non-destructive** and safe for public branches.
+
+### 📌 Example
+```bash
+git revert <commit-hash>
+```
+
+This creates a new commit that reverses the changes introduced by the specified commit.
+
+#### 🧠 Use Case
+- Undo a commit in a **shared branch** (e.g., `main`) without rewriting history.
+
+---
+
+### 📦 3. `git stash`
+
+**Purpose:** Temporarily save changes that are not ready to be committed, so you can work on something else.
+
+#### 📌 Common Commands
+
+```bash
+git stash           # Save changes
+git stash list      # View stashes
+git stash apply     # Reapply latest stash
+git stash pop       # Reapply and remove stash
+git stash drop      # Delete a stash
+```
+
+#### 🧠 Use Case
+- You’re in the middle of work but need to switch branches quickly without committing.
+
+---
+
+### 🆚 Summary Table
+
+| Feature       | `git reset`                     | `git revert`                    | `git stash`                          |
+|---------------|----------------------------------|----------------------------------|--------------------------------------|
+| Alters history? | Yes (local only)                | No                               | No                                   |
+| Safe for shared branches? | No                           | Yes                              | Yes                                  |
+| Use case      | Undo commits, clean history      | Undo a commit safely             | Temporarily save uncommitted changes |
+| Destructive?  | Can be (`--hard`)                | No                               | No (unless stash is dropped)         |
 
 ---
