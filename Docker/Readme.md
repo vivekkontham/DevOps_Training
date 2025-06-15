@@ -1,4 +1,3 @@
-##Docker
 docker pull imagename:tag
 #Pulls a specific image (with tag) from Docker Hub or a registry.
 
