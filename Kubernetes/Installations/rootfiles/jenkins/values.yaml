@@ -1,0 +1,25 @@
+#Deployment Details
+
+image:
+  repository: jenkins/jenkins
+  # This sets the pull policy for images.
+  pullPolicy: IfNotPresent
+  tag: "lts-jdk17"
+
+
+serviceAccount:
+  name: jenkins-admin
+
+
+
+volumes:
+  - name: jenkins-data
+    persistentVolumeClaim:
+        claimName: jenkins-pv-claim
+
+volumeMounts:
+  - name: jenkins-data
+    mountPath: /var/jenkins_home
+
+namespace:
+  name: "jenkins"
