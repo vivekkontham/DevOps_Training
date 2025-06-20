@@ -45,7 +45,7 @@
 * To get the Jenkins admin password (if set by the chart values):
 
   ```bash
-  kubectl exec -it <jenkins-pod-name> -n nexus -- cat /var/jenkins_home/secrets/initialAdminPassword
+  kubectl exec -it <jenkins-pod-name> -n jenkins -- cat /var/jenkins_home/secrets/initialAdminPassword
 
   ```
 
@@ -61,7 +61,7 @@
    http://<EXTERNAL-IP>:8080
    ```
 
-   > 📌 Default Nexus UI Port: `8080`
+   > 📌 Default Jenkins UI Port: `8080`
 
 ## Cleanup
 
