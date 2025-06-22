@@ -66,3 +66,5 @@
 - Canary and Blue/Green deployments
 
 ---
+
+https://spacelift.io/blog/prometheus-kubernetes
