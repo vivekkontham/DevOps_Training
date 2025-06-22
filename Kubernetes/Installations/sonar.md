@@ -55,8 +55,6 @@
    http://<EXTERNAL-IP>:80
    ```
 
-   > 📌 Default Sonarqube UI Port: `80`
-
 ## Cleanup
 
 To uninstall Sonarqube and delete the namespace:
