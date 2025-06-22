@@ -53,6 +53,8 @@
 
    ```
    http://<EXTERNAL-IP>:80
+   username : admin
+   password : admin
    ```
 
 ## Cleanup
