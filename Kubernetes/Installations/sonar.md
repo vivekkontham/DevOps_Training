@@ -52,7 +52,7 @@
    Look for the `EXTERNAL-IP` of the `Sonarqube` service. Once it's available, open your browser and go to:
 
    ```
-   http://<EXTERNAL-IP>:80
+   http://<EXTERNAL-IP>:80/sonar
    username : admin
    password : admin
    ```
