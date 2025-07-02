@@ -1,19 +1,15 @@
 
 # Container Orchestration & Kubernetes Explained
 
----
-
 ## Table of Contents
 
 1. [What is a Container Orchestration Platform?](#what-is-a-container-orchestration-platform)
 2. [What is Kubernetes?](#what-is-kubernetes)
 3. [Evolution of Kubernetes](#evolution-of-kubernetes)
 4. [Kubernetes Architecture](#kubernetes-architecture)
-
    * [Control Plane (Master) Components](#control-plane-master-components)
    * [Worker Node Components](#worker-node-components)
 5. [Kubernetes Objects (Ordered)](#kubernetes-objects-ordered)
-
    * [Pod](#pod)
    * [ReplicaSet](#replicaset)
    * [Deployment](#deployment)
