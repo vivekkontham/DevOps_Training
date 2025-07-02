@@ -1,3 +1,43 @@
+# Source Code Management & Git Explained
+
+## Table of Contents
+
+1. [What is Source Code Management?](#what-is-source-code-management)
+2. [How Was Source Code Managed Before Modern Version Control Systems](#how-was-source-code-managed-before-modern-version-control-systems)
+3. [What is a Version Control System?](#what-is-a-version-control-system)
+4. [History of Version Control Systems](#history-of-version-control-systems)
+
+   * [Pre-VCS Era](#pre-vcs-era-manual-versioning)
+   * [Early VCS: SCCS and RCS](#early-vcs-sccs-and-rcs)
+   * [Centralized VCS](#centralized-version-control-systems)
+   * [Distributed VCS](#distributed-version-control-systems-dvcs)
+5. [What is Git?](#what-is-git)
+6. [Popular Git Platforms](#popular-git-platforms)
+7. [What is a Repository?](#what-is-a-repository)
+8. [Local Repository](#local-repository)
+9. [Remote Repository](#remote-repository)
+10. [How They Work Together](#how-they-work-together)
+11. [What is a Branch?](#what-is-a-branch)
+12. [What is a Tag?](#what-is-a-tag)
+13. [What is a Commit?](#what-is-a-commit)
+14. [Git Workflow](#git-workflow)
+15. [Working Directory](#working-directory-wd)
+16. [Staging Area](#staging-area-sa)
+17. [Local Repository (Again)](#local-repository-lr)
+18. [Remote Repository (Again)](#remote-repository-rr)
+19. [Summary of Git Commands](#summary-of-git-commands)
+20. [Git Flow](#git-flow)
+21. [GitHub Flow](#github-flow)
+22. [Git Flow vs GitHub Flow](#git-flow-vs-github-flow)
+23. [Git Advanced Commands](#git-advanced-commands)
+
+* [git reset](#1-git-reset)
+* [git revert](#2-git-revert)
+* [git stash](#3-git-stash)
+* [Comparison Table](#summary-table)
+
+---
+
 ## What is Source Code Management?
 
 Source Code Management (SCM) is the systematic process of tracking, controlling, and managing changes to software code. It not only enables teams to collaborate seamlessly but also preserves the entire history of a project's evolution. SCM is fundamental for modern software development, ensuring that codebases remain stable, traceable, and adaptable over time.
@@ -94,25 +134,25 @@ Here’s a detailed explanation of **Git** and the different types of **Git plat
 
 ---
 
-## 🧠 What is Git?
+## What is Git?
 
 **Git** is a **distributed version control system** used to track changes in source code during software development.
 
-### 🔹 Key Features:
+###  Key Features:
 - Tracks changes to files over time.
 - Allows multiple developers to collaborate.
 - Supports branching and merging.
 - Works offline (local repository).
 - Maintains a full history of changes.
 
-### 🔹 Why Use Git?
+###  Why Use Git?
 - Helps manage code versions.
 - Enables collaboration without overwriting each other's work.
 - Makes it easy to roll back to previous versions.
 
 ---
 
-## 🌐 Popular Git Platforms
+##  Popular Git Platforms
 
 These platforms host Git repositories and provide collaboration tools like issue tracking, pull requests, CI/CD, and more.
 
@@ -161,35 +201,35 @@ These platforms host Git repositories and provide collaboration tools like issue
   - Permissions and policies for enterprises
 ---
 
-## 📁 What is a Repository?
+##  What is a Repository?
 
 A **repository (repo)** is like a **project folder** that stores all your code, files, and the entire history of changes.
 
-### 🔹 Key Features:
+###  Key Features:
 - Contains source code, documentation, and configuration files.
 - Tracks every change made to the project.
 - Can be **local** (on your computer) or **remote** (on GitHub, GitLab, etc.).
 
 ---
 
-## 🏠 Local Repository
+##  Local Repository
 
 A **local repository** is the Git repository stored on your **own computer**. You can commit, branch, and manage history locally.
 
 
-### 🔹 What it includes:
+### What it includes:
 - Your working directory (the actual files).
 - A `.git` folder that stores the full history of commits, branches, and tags.
 - Staging area (index) for preparing commits.
 
-### 🔹 What you can do locally:
+### What you can do locally:
 - Create branches
 - Make commits
 - View history
 - Merge changes
 - Revert to previous versions
 
-### 🧠 Example:
+### Example:
 ```bash
 git init
 ```
@@ -197,17 +237,17 @@ Creates a new local Git repository.
 
 ---
 
-## 🌐 Remote Repository
+## Remote Repository
 
 A **remote repository** is a Git repository hosted on a **server or platform** like GitHub, GitLab, or Bitbucket. Remote repository is hosted on a server (like GitHub). Used for sharing and collaborating with others.
 
 
-### 🔹 Purpose:
+###  Purpose:
 - Enables **collaboration** with others.
 - Acts as a **central source of truth** for the project.
 - Used to **push** and **pull** changes between developers.
 
-### 🔹 Common Commands:
+###  Common Commands:
 ```bash
 git remote add origin https://github.com/user/repo.git
 git push origin main
@@ -216,7 +256,7 @@ git pull origin main
 
 ---
 
-## 🔄 How They Work Together
+##  How They Work Together
 
 1. You **clone** a remote repo → creates a local copy.
 2. You make changes and **commit** locally.
@@ -225,20 +265,20 @@ git pull origin main
 
 ---
 
-## 🌿 What is a Branch?
+##  What is a Branch?
 
 A **branch** is a **separate line of development** in your repository.
 
-### 🔹 Why Use Branches?
+### Why Use Branches?
 - To work on new features or bug fixes without affecting the main code.
 - Allows multiple developers to work in parallel.
 
-### 🔹 Common Branches:
+###  Common Branches:
 - `main` or `master`: The main production-ready code.
 - `dev`: Development branch.
 - `feature/login`: A feature-specific branch.
 
-### 🧠 Example:
+###  Example:
 ```bash
 git checkout -b feature/login
 ```
@@ -246,15 +286,15 @@ Creates and switches to a new branch called `feature/login`.
 
 ---
 
-## 🏷️ What is a Tag?
+##  What is a Tag?
 
 A **tag** is a **snapshot** of your repository at a specific point in time, usually used to mark **releases**.
 
-### 🔹 Why Use Tags?
+###  Why Use Tags?
 - To label versions like `v1.0`, `v2.1.3`, etc.
 - Useful for deployments and rollbacks.
 
-### 🧠 Example:
+###  Example:
 ```bash
 git tag v1.0
 ```
@@ -262,21 +302,21 @@ Creates a tag named `v1.0`.
 
 ---
 
-## 📝 What is a Commit?
+##  What is a Commit?
 
 A **commit** is a **record of changes** made to the codebase.
 
-### 🔹 What It Includes:
+###  What It Includes:
 - A unique ID (SHA hash)
 - Author and timestamp
 - A message describing the change
 - The actual changes (diff)
 
-### 🔹 Why Commits Matter:
+###  Why Commits Matter:
 - They form the **history** of your project.
 - Allow you to **track, revert, or review** changes.
 
-### 🧠 Example:
+###  Example:
 ```bash
 git commit -m "Add login feature"
 ```
@@ -284,7 +324,7 @@ Creates a commit with a message describing the change.
 
 ---
 
-## 🔄 Git Workflow
+##  Git Workflow
 
 1. **Working Directory (WD)**  
    - Where you make changes to your files.
@@ -321,7 +361,7 @@ Creates a commit with a message describing the change.
 
 ---
 
-### 🔄 Git Workflow Explained
+###  Git Workflow Explained
 
 1. **Working Directory (WD)**  
    - Where you make changes to your files.
@@ -358,7 +398,7 @@ Creates a commit with a message describing the change.
 
 ---
 
-## 🏠 Working Directory (WD)
+##  Working Directory (WD)
 This is where you make changes to your files.
 
 - Example: You edit `index.html` or `app.py`.
@@ -366,7 +406,7 @@ This is where you make changes to your files.
 
 ---
 
-## 🧺 Staging Area (SA)
+##  Staging Area (SA)
 A temporary area where you prepare changes before committing.
 
 - Command:
@@ -380,7 +420,7 @@ A temporary area where you prepare changes before committing.
 
 ---
 
-## 🗃️ Local Repository (LR)
+##  Local Repository (LR)
 This is your local Git database where commits are stored.
 
 - Command:
@@ -394,7 +434,7 @@ This is your local Git database where commits are stored.
 
 ---
 
-## 🌐 Remote Repository (RR)
+##  Remote Repository (RR)
 A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
 
 - Push changes to remote:
@@ -403,12 +443,12 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
   ```
 - Pull changes from remote:
   ```bash
-  git pull origin main
+  g`it pull origin main
   ```
 
 ---
 
-## 🔁 Summary of Git Commands
+##  Summary of Git Commands
 
 | Stage             | Command Example                  | Purpose                          |
 |------------------|----------------------------------|----------------------------------|
@@ -420,7 +460,7 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
 
 ---
 
-## ✅ Tips
+##  Tips
 - Use `git log` to view commit history.
 - Use `git branch` to manage branches.
 - Use `git clone` to copy a remote repo locally.
@@ -428,7 +468,7 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
 
 ---
 
-## 🔁 Git Flow
+##  Git Flow
 
 **Created by:** Vincent Driessen  
 **Best for:** Large projects with scheduled releases (e.g., enterprise software)
@@ -441,7 +481,7 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
 4. **`release/*`** – Prepares code for production release.
 5. **`hotfix/*`** – Used to quickly patch production issues.
 
-### 🔄 Workflow
+###  Workflow
 
 1. **Start a feature** from `develop`:
    ```bash
@@ -486,27 +526,27 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
    git merge hotfix/1.0.1
    ```
 
-### ✅ Pros
+###  Pros
 - Clear structure for managing releases and hotfixes.
 - Ideal for parallel development and long-term projects.
 
-### ❌ Cons
+###  Cons
 - Can be **complex** and **heavy** for small teams or fast-paced environments.
 - Requires discipline in managing multiple branches.
 
 ---
 
-## 🌐 GitHub Flow
+##  GitHub Flow
 
 **Created by:** GitHub  
 **Best for:** Continuous deployment, web apps, startups
 
-### 🔧 Branches in GitHub Flow
+###  Branches in GitHub Flow
 
 1. **`main`** – Always deployable.
 2. **Feature branches** – Created from `main` for each new piece of work.
 
-### 🔄 Workflow
+###  Workflow
 
 1. **Create a branch**:
    ```bash
@@ -525,18 +565,18 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
    - Once approved and tested, merge the PR.
    - Deploy immediately if needed.
 
-### ✅ Pros
+###  Pros
 - **Simple and fast** – great for continuous delivery.
 - Encourages frequent integration and deployment.
 - Easy to understand and adopt.
 
-### ❌ Cons
+###  Cons
 - No built-in support for release or hotfix branches.
 - Not ideal for complex release cycles or multiple environments.
 
 ---
 
-## 🆚 Git Flow vs GitHub Flow
+##  Git Flow vs GitHub Flow
 
 | Feature               | Git Flow                          | GitHub Flow                      |
 |-----------------------|-----------------------------------|----------------------------------|
@@ -548,11 +588,11 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
 
 ---
 ## Git Advanced Commands
-### 🔄 1. `git reset`
+###  1. `git reset`
 
 **Purpose:** Move the current branch pointer to a different commit and optionally modify the staging area and working directory.
 
-#### 🔧 Types of Reset
+####  Types of Reset
 
 | Command | Effect on Commit History | Staging Area | Working Directory |
 |---------|--------------------------|---------------|-------------------|
@@ -560,43 +600,43 @@ A shared repository hosted on platforms like GitHub, GitLab, or Bitbucket.
 | `--mixed` (default) | Moves HEAD and resets staging | Reset         | Preserved          |
 | `--hard`  | Moves HEAD, resets staging | Reset         | Reset              |
 
-#### 📌 Example
+#### Example
 ```bash
 git reset --soft HEAD~1   # Undo last commit, keep changes staged
 git reset --mixed HEAD~1  # Undo last commit, unstage changes
 git reset --hard HEAD~1   # Undo last commit, discard changes
 ```
 
-#### ⚠️ Caution
+#### Caution
 - `--hard` is **destructive**—you lose uncommitted work.
 - Use `reset` only for **local history rewriting**.
 
 ---
 
-### 🔁 2. `git revert`
+###  2. `git revert`
 
 **Purpose:** Create a new commit that undoes the changes made by a previous commit.
 
-#### ✅ Safe for Shared Repos
+#### Safe for Shared Repos
 Unlike `reset`, `revert` is **non-destructive** and safe for public branches.
 
-### 📌 Example
+### Example
 ```bash
 git revert <commit-hash>
 ```
 
 This creates a new commit that reverses the changes introduced by the specified commit.
 
-#### 🧠 Use Case
+#### Use Case
 - Undo a commit in a **shared branch** (e.g., `main`) without rewriting history.
 
 ---
 
-### 📦 3. `git stash`
+###  3. `git stash`
 
 **Purpose:** Temporarily save changes that are not ready to be committed, so you can work on something else.
 
-#### 📌 Common Commands
+#### Common Commands
 
 ```bash
 git stash           # Save changes
@@ -606,12 +646,12 @@ git stash pop       # Reapply and remove stash
 git stash drop      # Delete a stash
 ```
 
-#### 🧠 Use Case
+#### Use Case
 - You’re in the middle of work but need to switch branches quickly without committing.
 
 ---
 
-### 🆚 Summary Table
+### Summary Table
 
 | Feature       | `git reset`                     | `git revert`                    | `git stash`                          |
 |---------------|----------------------------------|----------------------------------|--------------------------------------|
