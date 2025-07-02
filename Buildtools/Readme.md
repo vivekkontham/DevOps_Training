@@ -1,7 +1,7 @@
-# 📦 Build Tools
+# Build Tools
 
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [What are Build Tools?](#what-are-build-tools)
 2. [Purpose of Build Tools](#purpose-of-build-tools)
